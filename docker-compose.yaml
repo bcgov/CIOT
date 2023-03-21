@@ -1,0 +1,34 @@
+version: "3.3"
+
+services:
+  ciot-api:
+    container_name: ciot-api
+    build:
+      context: ./ciot-api
+      dockerfile: dockerfile.dev
+    volumes:
+      - ./ciot-api:/code
+    #   - static:/static
+    #   - media:/code/data
+    env_file:
+      - ciot-api/.env
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+
+  db:
+    # image: mdillon/postgis
+    # image: postgis/postgis:15-3.3
+    # image: pgrouting/pgrouting
+    image: kartoza/postgis:15-3.3
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: cit
+      POSTGRES_MULTIPLE_EXTENSIONS: postgis,pgrouting,pg_buffercache,pg_stat_statements
+    volumes:
+      - ./db/init.sql:/usr/share/postgresql/15/contrib/postgis-3.3/legacy_minimal.sql
+      - ./db/cittest1.sql:/docker-entrypoint-initdb.d/setup-db.sql
+    ports:
+      - 5432:5432
