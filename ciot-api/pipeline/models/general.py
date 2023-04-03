@@ -41,6 +41,9 @@ class Hex(models.Model):
     avail_25_5 = models.BooleanField(default=False)
     avail_50_10 = models.BooleanField(default=False)
 
+class Road(models.Model):
+    geom = models.MultiLineStringField(srid=WGS84_SRID, null=True)
+    best_broadband = models.CharField(max_length=5)
 
 class Municipality(models.Model):
     ID_FIELD = 'LGL_ADMIN_AREA_ID'

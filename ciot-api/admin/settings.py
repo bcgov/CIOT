@@ -45,6 +45,7 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
     'rest_framework',
     'corsheaders',
     'drf_yasg',

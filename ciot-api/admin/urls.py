@@ -39,4 +39,5 @@ urlpatterns = [
         name='schema-json'),
     re_path(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     re_path(r"^api/opportunity/", include('pipeline.opportunity-urls')),
+    re_path(r"^api/email/", include('pipeline.email-urls')),
 ]
