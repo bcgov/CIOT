@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { MdError } from "react-icons/md";
@@ -23,7 +23,6 @@ import { NOTIFICATION_ERROR } from "../../../store/constants/notification";
 import { useKeycloakWrapper } from "../../../hooks/useKeycloakWrapper";
 import { postUser } from "../../../store/actions/user";
 import UserFactory from "../../../store/factory/UserFactory";
-import OpportunityFactory from "../../../store/factory/OpportunityFactory";
 import { createOpportunityLink } from "../../../helpers/helpers";
 
 const ReviewOpportunity = () => {
@@ -37,6 +36,7 @@ const ReviewOpportunity = () => {
   const editing = useSelector((state) => state.opportunity.editing);
   const userModel = useSelector((state) => state.user);
   const keycloak = useKeycloakWrapper();
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handlePostOpportunity = async () => {
     const { data: user } = await postUser(
@@ -66,6 +66,7 @@ const ReviewOpportunity = () => {
             });
           dispatch(resetOpportunity());
           dispatch(closeNotification());
+          setIsSubmitted(false);
           history.push("/investmentopportunities/success");
         })
         .catch((e) => {
@@ -81,6 +82,7 @@ const ReviewOpportunity = () => {
       .then(() => {
         dispatch(resetOpportunity());
         dispatch(closeNotification());
+        setIsSubmitted(false);
         history.push("/investmentopportunities/success");
       })
       .catch((e) => {
@@ -90,6 +92,7 @@ const ReviewOpportunity = () => {
   };
 
   const handleSubmitOpportunity = () => {
+    setIsSubmitted(true);
     if (!editing) {
       handlePostOpportunity();
     } else {
@@ -120,6 +123,7 @@ const ReviewOpportunity = () => {
         submitOpportunity={() => handleSubmitOpportunity()}
         cancelOpportunity={() => confirmCancel()}
         prevRoute="/investmentopportunities/additional-details"
+        isSubmitted={isSubmitted}
       />
       <OpportunityView view="all" />
     </div>
