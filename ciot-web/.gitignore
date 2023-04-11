@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/.yarn
 /.pnp
 .pnp.js
 
@@ -10,6 +11,9 @@
 
 # production
 /build
+
+# eslint
+.eslintcache
 
 # misc
 .DS_Store

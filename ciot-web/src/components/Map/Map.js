@@ -1,10 +1,11 @@
-import { useState, useEffect, Component } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import {
   MapContainer,
   Marker,
   Popup,
   TileLayer,
+  MapConsumer,
   LayersControl,
   WMSTileLayer,
   Polygon,
@@ -186,6 +187,25 @@ export default function Map({
       touchZoom={isInteractive}
       style={{ width: "100%", height: "100%" }}
     >
+      <MapConsumer>
+        {(localMap) => {
+          // Extend tile sizing to fix white borders on map
+          /* eslint-disable */
+          localMap.invalidateSize();
+          const originalInitTile = L.GridLayer.prototype._initTile;
+          L.GridLayer.include({
+            _initTile(tile) {
+              originalInitTile.call(this, tile);
+
+              const tileSize = this.getTileSize();
+
+              tile.style.width = `${tileSize.x + 1}px`;
+              tile.style.height = `${tileSize.y + 1}px`;
+            },
+          });
+          return null;
+        }}
+      </MapConsumer>
       {searchComponents}
       {additionalComponents}
     </MapContainer>

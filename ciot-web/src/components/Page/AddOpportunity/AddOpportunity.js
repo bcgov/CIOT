@@ -3,7 +3,7 @@ import { Container, Row, Col, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "shared-components";
 import { useEffect, useState } from "react";
-import { v4 } from "uuid";
+import v4 from "uuid";
 import { Callout } from "shared-components/build/components/callout/Callout";
 import NumberFormat from "react-number-format";
 import NavigationHeader from "../../Headers/NavigationHeader/NavigationHeader";
@@ -33,6 +33,7 @@ import {
 import Radios from "../../FormComponents/Radios";
 import Terms from "../../Terms/Terms";
 import LoadingScreen from "../../LoadingScreen/LoadingScreen";
+import TextInput from "../../FormComponents/TextInput";
 
 export default function AddOpportunity() {
   const dispatch = useDispatch();
@@ -159,7 +160,7 @@ export default function AddOpportunity() {
     if (!agreed) {
       errors = [...errors, "Please agree to the Terms of use."];
     }
-    setWarning(warnings); 
+    setWarning(warnings);
     setError(errors);
     setChangePage(agreed && !errors.length && !isInvalidAddress);
     if (!proximityInProgress) {

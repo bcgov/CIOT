@@ -1,4 +1,5 @@
 import axios from "axios";
+import querystring from "querystring";
 import Config from "../Config";
 
 export async function getAddressData(address) {
@@ -100,18 +101,10 @@ function returnResourcesWithinMaxDistance(resources, maxDistance, coords) {
   return nearbyResources;
 }
 
-function toQueryString(paramsObject) {
-  return Object
-    .keys(paramsObject)
-    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(paramsObject[key])}`)
-    .join('&')
-  ;
-}
-
 export const getProximityData = async (coords, source) =>
   axios
     .get(
-      `/api/opportunity/proximity/?${toQueryString({
+      `/api/opportunity/proximity/?${querystring.encode({
         lat: coords[0],
         lng: coords[1],
       })}`,
@@ -126,4 +119,3 @@ export const getProximityData = async (coords, source) =>
       }
       return null;
     });
-    

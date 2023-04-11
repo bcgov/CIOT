@@ -1,8 +1,9 @@
-export const useQuery = () => {
-  const urlSearchParams = new URLSearchParams(window.location.search);
-  const params = Object.fromEntries(urlSearchParams.entries());
+import { useLocation } from "react-router";
+import queryString from "querystring";
 
-  return params;
+export const useQuery = () => {
+  const location = useLocation();
+  return queryString.parse(location.search.replace("?", ""));
 };
 
 export default { useQuery };
