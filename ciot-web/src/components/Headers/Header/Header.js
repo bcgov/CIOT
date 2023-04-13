@@ -13,6 +13,7 @@ const Header = () => {
   const history = useHistory();
   const location = useLocation();
   const [isPowerBI, setIsPowerBI] = useState(null);
+  const [isAvailable, setIsAvailable] = useState(false);
 
   const title = () => {
     if (location.pathname.includes("/investmentopportunities")) {
@@ -98,18 +99,19 @@ const Header = () => {
               Manage Opportunities
             </Button>
           )}
-          {keycloak.hasRole([
-            Roles.SUPER_ADMINISTRATOR,
-            Roles.SYSTEM_ADMINISTRATOR,
-          ]) && (
-            <Button
-              variant="link"
-              className="text-white"
-              onClick={() => history.push("/manage/users/")}
-            >
-              Manage Users
-            </Button>
-          )}
+          {isAvailable &&
+            keycloak.hasRole([
+              Roles.SUPER_ADMINISTRATOR,
+              Roles.SYSTEM_ADMINISTRATOR,
+            ]) && (
+              <Button
+                variant="link"
+                className="text-white"
+                onClick={() => history.push("/manage/users/")}
+              >
+                Manage Users
+              </Button>
+            )}
         </div>
       ) : null}
     </>
