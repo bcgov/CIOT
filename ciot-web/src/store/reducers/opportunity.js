@@ -36,14 +36,16 @@ import OpportunityFactory from "../factory/OpportunityFactory";
 /**
  * Opportunity get/reset actions get processed
  *
- * @param {Object} state set to initial state, then contains the current state
+ * @param {Object} currentState set to initial state, then contains the current state
  * @param {String} action.type incoming action type
  * @param {String} action.payload incoming action payload, varying on opportunity field
  */
 export default function opportunity(
-  state = { ...OPPORTUNITY_MODEL() },
+  currentState = { ...OPPORTUNITY_MODEL() },
   action
 ) {
+  let state = { ...currentState };
+
   /* eslint-disable no-param-reassign */
   switch (action.type) {
     case ADD_ALL:
