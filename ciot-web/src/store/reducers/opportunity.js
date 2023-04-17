@@ -59,10 +59,10 @@ export default function opportunity(
       state.user = action.payload;
       break;
     case ADD_ADDRESS:
-      state.address = action.payload;
+      state = { ...state, address: action.payload };
       break;
     case ADD_COORDS:
-      state.coords = action.payload;
+      state = { ...state, coords: action.payload };
       break;
     case ADD_BUSINESS_CONTACT_NAME:
       state.businessContactName = action.payload;
@@ -106,13 +106,22 @@ export default function opportunity(
       }
       break;
     case ADD_PARCEL_OWNER:
-      state.siteInfo.parcelOwnership.name = action.payload;
+      state.siteInfo.parcelOwnership = {
+        ...state.siteInfo.parcelOwnership,
+        name: action.payload,
+      };
       break;
     case ADD_PARCEL_SIZE:
-      state.siteInfo.parcelSize.value = action.payload;
+      state.siteInfo.parcelSize = {
+        ...state.siteInfo.parcelSize,
+        value: action.payload,
+      };
       break;
     case ADD_SITE_ID:
-      state.siteInfo.siteId.value = action.payload;
+      state.siteInfo.siteId = {
+        ...state.siteInfo.siteId,
+        value: action.payload,
+      };
       break;
     case ADD_USER_INFO:
       state.userInfo[action.payload.key].value = action.payload.value;
