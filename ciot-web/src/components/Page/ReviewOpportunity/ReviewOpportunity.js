@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { MdError } from "react-icons/md";
@@ -31,6 +31,9 @@ const ReviewOpportunity = () => {
   const dispatch = useDispatch();
   const error = useSelector((state) => state.notification.data);
   const opportunityModel = useSelector((state) => state.opportunity);
+  const approvalStatus = useSelector(
+    (state) => state.opportunity.approvalStatus
+  );
   const editing = useSelector((state) => state.opportunity.editing);
   const userModel = useSelector((state) => state.user);
   const keycloak = useKeycloakWrapper();
@@ -42,30 +45,35 @@ const ReviewOpportunity = () => {
     );
     dispatch(setOpportunityUser(user.id));
     dispatch(setApprovalStatus("NEW"));
-    await postOpportunity(opportunityModel, keycloak.obj.token)
-      .then((response) => {
-        const opportunityLink = createOpportunityLink(
-          opportunityModel.name,
-          response.data.id
-        );
-        sendAdminEmailNotification(
-          response.data.id,
-          opportunityLink,
-          keycloak.obj.token
-        )
-          .then(() => {})
-          .catch((e) => {
-            console.log(e);
-          });
-        dispatch(resetOpportunity());
-        dispatch(closeNotification());
-        history.push("/investmentopportunities/success");
-      })
-      .catch((e) => {
-        dispatch(setNotification(NOTIFICATION_ERROR, e));
-        window.scrollTo(0, 0);
-      });
   };
+
+  useEffect(async () => {
+    if (approvalStatus) {
+      await postOpportunity(opportunityModel, keycloak.obj.token)
+        .then((response) => {
+          const opportunityLink = createOpportunityLink(
+            opportunityModel.name,
+            response.data.id
+          );
+          sendAdminEmailNotification(
+            response.data.id,
+            opportunityLink,
+            keycloak.obj.token
+          )
+            .then(() => {})
+            .catch((e) => {
+              console.log(e);
+            });
+          dispatch(resetOpportunity());
+          dispatch(closeNotification());
+          history.push("/investmentopportunities/success");
+        })
+        .catch((e) => {
+          dispatch(setNotification(NOTIFICATION_ERROR, e));
+          window.scrollTo(0, 0);
+        });
+    }
+  }, [approvalStatus]);
 
   const handlePutpportunity = async () => {
     dispatch(setApprovalStatus("NWED"));
