@@ -31,6 +31,7 @@ const OpportunityApprovePage = ({ id }) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const [alertStatus, setAlertStatus] = useState();
+  const [isUpdate, setIsUpdate] = useState(false);
   const [user, setUser] = useState({});
   const [validUser, setValidUser] = useState(true);
   const [userStatement, setUserStatement] = useState("");
@@ -106,11 +107,11 @@ const OpportunityApprovePage = ({ id }) => {
     }
 
     dispatch(setLastAdmin(username));
+    setIsUpdate(true);
   };
 
   useEffect(() => {
-    if (lastAdmin) {
-      console.log("Updating Opportunity");
+    if (lastAdmin && isUpdate) {
       updateOpportunity(opportunity, keycloak.obj.token)
         .then(() => {
           dispatch(setNotification(NOTIFICATION_SUCCESS));
@@ -118,8 +119,9 @@ const OpportunityApprovePage = ({ id }) => {
         .catch((e) => {
           dispatch(setNotification(NOTIFICATION_ERROR, e));
         });
+      setIsUpdate(false);
     }
-  }, [lastAdmin]);
+  }, [lastAdmin, isUpdate]);
 
   return (
     <div data-testid="OpportunityApprovePage">
