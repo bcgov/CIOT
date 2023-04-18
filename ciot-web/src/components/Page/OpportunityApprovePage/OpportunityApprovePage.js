@@ -36,6 +36,7 @@ const OpportunityApprovePage = ({ id }) => {
   const [userStatement, setUserStatement] = useState("");
   const [userQuestion, setUserQuestion] = useState("");
   const opportunity = useSelector((state) => state.opportunity);
+  const lastAdmin = useSelector((state) => state.opportunity.lastAdmin);
   const notificationShow = useSelector((state) => state.notification.show);
   const notificationType = useSelector((state) => state.notification.type);
   const username = useSelector((state) => state.user.name);
@@ -93,7 +94,8 @@ const OpportunityApprovePage = ({ id }) => {
   }
 
   const handleUpdateOpportunity = (newStatus, approval) => {
-    dispatch(setLastAdmin(username));
+    setAlertStatus(newStatus);
+
     if (approval === "Yes") {
       postUser(
         UserFactory.createRequestFromState(user, opportunity),
@@ -102,15 +104,22 @@ const OpportunityApprovePage = ({ id }) => {
         setValidUser(true);
       });
     }
-    setAlertStatus(newStatus);
-    updateOpportunity(opportunity, keycloak.obj.token)
-      .then(() => {
-        dispatch(setNotification(NOTIFICATION_SUCCESS));
-      })
-      .catch((e) => {
-        dispatch(setNotification(NOTIFICATION_ERROR, e));
-      });
+
+    dispatch(setLastAdmin(username));
   };
+
+  useEffect(() => {
+    if (lastAdmin) {
+      console.log("Updating Opportunity");
+      updateOpportunity(opportunity, keycloak.obj.token)
+        .then(() => {
+          dispatch(setNotification(NOTIFICATION_SUCCESS));
+        })
+        .catch((e) => {
+          dispatch(setNotification(NOTIFICATION_ERROR, e));
+        });
+    }
+  }, [lastAdmin]);
 
   return (
     <div data-testid="OpportunityApprovePage">

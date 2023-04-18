@@ -86,15 +86,16 @@ const OpportunityApproveCallout = ({
 
   // Validate form changes
   useEffect(() => {
-    validateStatusChange();
+    if (validateStatusChange()) {
+      dispatch(setApprovalStatus(nextStatus));
+      dispatch(setPublicNote(newPublicNote));
+      dispatch(setPrivateNote(newPrivateNote));
+    }
   }, [nextStatus, newPublicNote, newPrivateNote]);
 
   // Add form data to state, and submit to DB
   const submitStatusChange = () => {
     if (validateStatusChange()) {
-      dispatch(setApprovalStatus(nextStatus));
-      dispatch(setPublicNote(newPublicNote));
-      dispatch(setPrivateNote(newPrivateNote));
       const alertStatus = approvalStatuses.find(
         (s) => nextStatus === s.status_code
       ).status_name;
