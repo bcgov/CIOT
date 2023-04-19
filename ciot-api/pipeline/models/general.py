@@ -2,36 +2,6 @@ from django.contrib.gis.db import models
 
 from pipeline.constants import WGS84_SRID
 
-class DataSource(models.Model):
-    from pipeline.constants import DATA_SOURCE_TYPE_CHOICES, DATA_SOURCE_CHOICES
-
-    name = models.CharField(max_length=127, unique=True)
-    display_name = models.CharField(max_length=127, null=True)
-    model_name = models.CharField(max_length=127, null=True)
-    source = models.CharField(max_length=127, choices=DATA_SOURCE_CHOICES, null=True)
-    source_type = models.CharField(max_length=127, choices=DATA_SOURCE_TYPE_CHOICES, null=True)
-
-    source_file_path = models.CharField(max_length=255, unique=True, null=True)
-    resource_id = models.CharField(
-        max_length=255,
-        null=True,
-        help_text="Resource ID for datasets from the BC Data Catalogue or Open Government")
-    permalink_id = models.CharField(
-        max_length=255, null=True, help_text="Permalink ID for datasets from the BC Data Catalogue")
-    sub_resource_id = models.CharField(
-        max_length=255, null=True, help_text="Sub-resource ID for datasets from Open Government")
-    external_url = models.URLField(null=True)
-    last_updated = models.DateTimeField(null=True)
-    dataset = models.CharField(max_length=255, null=True)
-    import_order = models.IntegerField(null=True)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        ordering = ("id", )
-
-
 class Hex(models.Model):
     # "PHH_ID","Avail_5_1_Dispo","Avail_10_2_Dispo","Avail_25_5_Dispo","Avail_50_10_Dispo","Avail_LTE_Mobile_Dispo"
     id = models.CharField(primary_key=True, max_length=12)

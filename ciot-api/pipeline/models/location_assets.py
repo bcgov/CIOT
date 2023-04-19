@@ -207,76 +207,6 @@ class Project(Location):
     class Meta:
         ordering = ("id", )
 
-    def get_standardized_start_date_as_date(self):
-        if not self.standardized_start_date:
-            return None
-
-        try:
-            return get_quarterly_date_str_as_date(self.standardized_start_date)
-        except ValueError:
-            return None
-
-    def get_standardized_completion_date_as_date(self):
-        if not self.standardized_completion_date:
-            return None
-
-        try:
-            return get_quarterly_date_str_as_date(self.standardized_completion_date)
-        except ValueError:
-            return None
-
-    def get_standardized_start_date_as_quarter(self):
-        if not self.standardized_start_date:
-            return None
-
-        try:
-            # try converting to date to see if the format is valid
-            get_quarterly_date_str_as_date(self.standardized_start_date)
-            return self.standardized_start_date
-        except ValueError:
-            return None
-
-    def get_standardized_completion_date_as_quarter(self):
-        if not self.standardized_completion_date:
-            return None
-
-        try:
-            # try converting to date to see if the format is valid
-            get_quarterly_date_str_as_date(self.standardized_completion_date)
-            return self.standardized_completion_date
-        except ValueError:
-            return None
-
-
-class ServiceBCLocation(Location):
-    NAME_FIELD = 'External Site'
-    LATITUDE_FIELD = 'Latitude'
-    LONGITUDE_FIELD = 'Longitude'
-    PHONE_FIELD = 'Site_Phone_No'
-    WEBSITE_FIELD = 'Website_URL'
-
-    class Meta:
-        ordering = ("id", )
-
-    '''
-    {
-        '_id': 1,
-        'External Site': 'Service BC - 100 Mile House',
-        'Address': '300 South Hwy 97',
-        'Locality': '100 Mile House',
-        'Site_Phone_No': '250 395-7832',
-        'Site_Fax_no': '250 395-7837',
-        'Website_URL': 'http://gov.bc.ca/servicebc/100milehouse',
-        'Site_Email': '',
-        'Latitude': 51.644455,
-        'Longitude': -121.297478,
-        'Office Code': 61,
-        'Item Type': 'Item',
-        'Path': 'sites/SBC/SD/HD/ROSites/Lists/GA Site Locations',
-        'Site': ''
-    }
-    '''
-
 
 class School(Location):
     NAME_FIELD = 'SCHOOL_NAME'
@@ -631,53 +561,6 @@ class PortAndTerminal(Location):
     physical_address = models.CharField(null=True, blank=True, max_length=255)
     other_address = models.CharField(null=True, blank=True, max_length=255)
     street_address = models.CharField(null=True, blank=True, max_length=255)
-
-    class Meta:
-        ordering = ("id", )
-
-
-class LaboratoryService(Location):
-    LATITUDE_FIELD = 'LATITUDE'
-    LONGITUDE_FIELD = 'LONGITUDE'
-    NAME_FIELD = 'SERVICE_NAME'
-    WEBSITE_FIELD = 'WEBSITE_URL'
-    PHONE_FIELD = 'CONTACT_PHONE'
-    EMAIL_FIELD = 'CONTACT_EMAIL'
-
-    description = models.CharField(null=True, blank=True, max_length=255)
-    type = models.CharField(null=True, blank=True, max_length=255)
-    sub_type = models.CharField(null=True, blank=True, max_length=255)
-    street_address = models.CharField(null=True, blank=True, max_length=255)
-    keywords = models.CharField(null=True, blank=True, max_length=255)
-    organization_name = models.CharField(null=True, blank=True, max_length=255)
-
-    class Meta:
-        ordering = ("id", )
-
-
-class LocalGovernmentOffice(Location):
-    LATITUDE_FIELD = 'LATITUDE'
-    LONGITUDE_FIELD = 'LONGITUDE'
-    NAME_FIELD = 'FACILITY_NAME'
-    WEBSITE_FIELD = 'WEBSITE_URL'
-
-    street_address = models.CharField(null=True, blank=True, max_length=255)
-    keywords = models.CharField(null=True, blank=True, max_length=255)
-    custodian_org_description = models.CharField(null=True, blank=True, max_length=255)
-    occupant_type_description = models.CharField(null=True, blank=True, max_length=255)
-
-    class Meta:
-        ordering = ("id", )
-
-
-class EmergencySocialServiceFacility(Location):
-    LATITUDE_FIELD = None
-    LONGITUDE_FIELD = None
-    NAME_FIELD = 'FACILITY_NAME'
-
-    address = models.CharField(null=True, blank=True, max_length=255)
-    facility_type_code = models.CharField(null=True, blank=True, max_length=255)
-    status = models.CharField(null=True, blank=True, max_length=255)
 
     class Meta:
         ordering = ("id", )
