@@ -47,10 +47,7 @@ const ReviewOpportunity = () => {
     dispatch(setApprovalStatus("PEND"));
     await postOpportunity(opportunityModel, keycloak.obj.token)
       .then((response) => {
-        const opportunityLink = createOpportunityLink(
-          opportunityModel.name,
-          response.data.id
-        );
+        const opportunityLink = createOpportunityLink(response.data.id);
         sendAdminEmailNotification(
           response.data.id,
           opportunityLink,
