@@ -109,7 +109,7 @@ export default function InputRangeWithTextboxes(props) {
           maxValue={inputRangeMax}
           minValue={inputRangeMin}
           value={inputRangeValue}
-          formatLabel={() => {}}
+          formatLabel={(value) => `${value}`}
           onChange={(value) => updateTextFields(value)}
         />
       </div>

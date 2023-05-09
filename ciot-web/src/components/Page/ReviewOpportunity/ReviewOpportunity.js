@@ -77,6 +77,7 @@ const ReviewOpportunity = () => {
   }, [approvalStatus]);
 
   const handlePutpportunity = async () => {
+    dispatch(setApprovalStatus("NWED"));
     await putOpportunity(opportunityModel, keycloak.obj.token)
       .then(() => {
         dispatch(resetOpportunity());
