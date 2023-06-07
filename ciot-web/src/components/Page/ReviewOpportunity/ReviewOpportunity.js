@@ -45,27 +45,6 @@ const ReviewOpportunity = () => {
     );
     dispatch(setOpportunityUser(user.id));
     dispatch(setApprovalStatus("PEND"));
-    await postOpportunity(opportunityModel, keycloak.obj.token)
-      .then((response) => {
-        const opportunityLink = createOpportunityLink(response.data.id);
-        sendAdminEmailNotification(
-          response.data.id,
-          opportunityLink,
-          keycloak.obj.token
-        )
-          .then(() => {})
-          .catch((e) => {
-            console.log(e);
-          });
-        dispatch(resetOpportunity());
-        dispatch(closeNotification());
-        setIsSubmitted(false);
-        history.push("/investmentopportunities/success");
-      })
-      .catch((e) => {
-        dispatch(setNotification(NOTIFICATION_ERROR, e));
-        window.scrollTo(0, 0);
-      });
   };
 
   useEffect(async () => {
