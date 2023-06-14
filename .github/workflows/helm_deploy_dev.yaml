@@ -1,0 +1,31 @@
+name: Helm Upgrade CIOT DEV
+
+on:
+    push:
+        branches: [develop]
+        paths:
+            - "openshift/ciot/**"
+    workflow_dispatch:
+
+jobs:
+    helm_upgrade_dev:
+        runs-on: ubuntu-latest
+        name: Helm Uprade CIOT Develop
+
+        steps:
+            - nane: Obtain code from git.
+              uses: actions/checkout@v3
+
+            - name: Openshift Cluster Login
+              uses: redhat-actions/oc-login@v1.2
+              with:
+                openshift_server_url: https://api.silver.devops.gov.bc.ca:6443
+                openshift_token: ${{ secrets.SILVER_DEV_SA_PIPELINE_TOKEN }}
+                insecure_skip_tls_verify: true
+                namespace: d2cb5f-dev
+
+            - name: Apply charts to OCP
+              working-directory: openshift/ciot
+              run: |
+                helm upgrade --namespace d2cb5f-dev -f values-dev.yaml ciot .
+
