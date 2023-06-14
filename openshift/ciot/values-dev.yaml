@@ -1,6 +1,6 @@
 app_name: ciot
 license_plate: d2cb5f
-replicas: 2
+replicas: 1
 image_stream_tag: develop
 namespace_env: dev
 limits_cpu: 250m
