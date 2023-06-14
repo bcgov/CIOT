@@ -1,7 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
 ./wait-for-it.sh ${POSTGRES_HOST}:5432
 
-python3 manage.py migrate
-python3 manage.py runserver 0.0.0.0:8000
+exec uwsgi --http 0.0.0.0:8000 --master --processes 4 --threads 2 --wsgi-file admin/wsgi.py
 
