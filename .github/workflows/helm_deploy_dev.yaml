@@ -13,7 +13,7 @@ jobs:
         name: Helm Uprade CIOT Develop
 
         steps:
-            - nane: Obtain code from git.
+            - name: Obtain code from git.
               uses: actions/checkout@v3
 
             - name: Openshift Cluster Login
@@ -28,4 +28,3 @@ jobs:
               working-directory: openshift/ciot
               run: |
                 helm upgrade --namespace d2cb5f-dev -f values-dev.yaml ciot .
-
