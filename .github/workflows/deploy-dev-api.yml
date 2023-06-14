@@ -5,7 +5,7 @@ on:
   push:
     branches: [develop]
     paths:
-      - 'ciot-api/**'
+      - "ciot-api/**"
   workflow_dispatch:
 
   jobs:
@@ -15,17 +15,17 @@ on:
       # checkout the repo
       - name: "Checkout GitHub Action"
         uses: actions/checkout@master
-      
+
       - name: "Build backend"
         run: |
-          docker build ciot-api -t ciot-api:latest -t image-registry.apps.silver.devops.gov.bc.ca/b4e935-tools/ciot-api:develop
+          docker build ciot-api -t image-registry.apps.silver.devops.gov.bc.ca/d2cb5f-tools/ciot-api:develop
           docker images
-      
-      - name: "Push backend to Openshift" 
+
+      - name: "Push backend to Openshift"
         uses: docker/login-action@v3
         with:
           registry: image-registry.apps.silver.devops.gov.bc.ca
           username: builder
-          password: ${{ secrets.OCP_REGISTRY_PASSWORD }}
+          password: ${{ secrets.SILVER_DEV_SA_BUILDER_TOKEN }}
       - run: |
-          docker push image-registry.apps.silver.devops.gov.bc.ca/b4e935-tools/ciot-api:develop
+          docker push image-registry.apps.silver.devops.gov.bc.ca/d2cb5f-tools/ciot-api:develop
