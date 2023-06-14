@@ -8,3 +8,4 @@ limits_memory: 512Mi
 requests_cpu: 150m
 requests_memory: 512Mi
 cluster: silver
+dockerhost: image-registry.openshift-image-registry.svc:5000
