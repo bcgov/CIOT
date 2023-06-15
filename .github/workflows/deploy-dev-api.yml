@@ -22,7 +22,7 @@ jobs:
         run: |
           pwd
           ls -la
-          docker build -f dockerfile_prod ciot-api -t image-registry.apps.silver.devops.gov.bc.ca/d2cb5f-tools/ciot-api:develop
+          docker build -f dockerfile_prod -t image-registry.apps.silver.devops.gov.bc.ca/d2cb5f-tools/ciot-api:develop .
           docker images
 
       - name: "Push backend to Openshift"
