@@ -9,5 +9,4 @@ COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 COPY . .
 
-CMD tail -f /dev/null
-#CMD ./entrypoint_prod.sh
+CMD ./entrypoint_prod.sh
