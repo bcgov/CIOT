@@ -5,7 +5,7 @@ services:
     container_name: ciot-api
     build:
       context: ./ciot-api
-      dockerfile: dockerfile.dev
+      dockerfile: dockerfile_dev
     volumes:
       - ./ciot-api:/code
     #   - static:/static
