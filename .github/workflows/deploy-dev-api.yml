@@ -20,8 +20,6 @@ jobs:
       - name: "Build backend"
         working-directory: "./ciot-api"
         run: |
-          pwd
-          ls -la
           docker build -f dockerfile_prod -t image-registry.apps.silver.devops.gov.bc.ca/d2cb5f-tools/ciot-api:develop .
           docker images
 
