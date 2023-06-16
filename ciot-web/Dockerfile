@@ -17,8 +17,6 @@ ENV SKIP_PREFLIGHT_CHECK=true
 
 RUN yarn build
 
-FROM nginx
-
 FROM nginx:1.19-alpine
 COPY --from=build-deps /usr/src/app/build /usr/share/nginx/html
 COPY --from=build-deps /usr/src/app/nginx.conf /etc/nginx/conf.d/default.conf
