@@ -29,7 +29,5 @@ jobs:
           registry: image-registry.apps.silver.devops.gov.bc.ca
           username: builder
           password: ${{ secrets.SILVER_DEV_SA_BUILDER_TOKEN }}
-
-      - name: "Push image"
-        run: |
+      - run: |
           docker push image-registry.apps.silver.devops.gov.bc.ca/d2cb5f-tools/ciot-web:develop
