@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-import "./HomePage.scss";
+import "./HomePage.css";
 import { Button } from "shared-components";
 import { useKeycloakWrapper } from "../../../hooks/useKeycloakWrapper";
 

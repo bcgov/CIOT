@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
-import "./NumberRangeFilter.scss";
+import "./NumberRangeFilter.css";
 import { Button } from "shared-components";
 import { Modal } from "react-bootstrap";
-import "react-input-range/src/scss/index.scss";
 import InputRangeWithTextboxes from "../InputRangeWithTextboxes/InputRangeWithTextboxes";
 
 export default function NumberRangeFilter(props) {
