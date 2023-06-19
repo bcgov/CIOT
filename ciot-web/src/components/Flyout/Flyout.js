@@ -2,7 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import { Container, Col, Row } from "react-bootstrap";
 import { Button } from "shared-components";
-import "./Flyout.scss";
+import "./Flyout.css";
 
 export default function Flyout(props) {
   const [leftOpenState, setLeftOpenState] = useState(true);

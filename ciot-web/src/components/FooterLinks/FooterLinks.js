@@ -1,4 +1,4 @@
-import "./FooterLinks.scss";
+import "./FooterLinks.css";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { Row, Col } from "react-bootstrap";
