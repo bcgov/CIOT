@@ -1,12 +1,11 @@
 # base image
-FROM node:10.16 as build-deps
+FROM node:14.21.2 as build-deps
 
 # set working directory
 ENV NODE_ROOT /usr/src/app
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-RUN npm install yarn -g --silent
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 

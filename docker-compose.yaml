@@ -1,6 +1,19 @@
 version: "3.3"
 
 services:
+  ciot-web:
+    container_name: ciot-web
+    build: ./ciot-web
+    env_file:
+      - ciot-web/.env
+    restart: always
+    ports:
+      - "80:80"
+    networks:
+      - backend
+    depends_on:
+      - ciot-api
+
   ciot-api:
     container_name: ciot-api
     build:
@@ -8,9 +21,13 @@ services:
       dockerfile: dockerfile_dev
     volumes:
       - ./ciot-api:/code
-    #   - static:/static
-    #   - media:/code/data
     env_file:
       - ciot-api/.env
     ports:
       - 8000:8000
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: "bridge"
