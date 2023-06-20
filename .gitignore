@@ -149,5 +149,6 @@ cit-web/dist
 .vscode
 cit-web/.nuxt
 cit-web/static/sw.js
+ciot-web/public/static/env.js
 
 .htpasswd
