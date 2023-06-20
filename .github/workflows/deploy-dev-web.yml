@@ -19,7 +19,7 @@ jobs:
       - name: "Build frontend"
         working-directory: "./ciot-web"
         run: |
-          docker build -t image-registry.apps.silver.devops.gov.bc.ca/b4e935-tools/ciot-web:develop .
+          docker build -t image-registry.apps.silver.devops.gov.bc.ca/d2cb5f-tools/ciot-web:develop .
           docker images
 
       # Uses the builder service account token
