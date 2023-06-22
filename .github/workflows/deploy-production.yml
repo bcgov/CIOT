@@ -1,0 +1,36 @@
+# This workflow will build and push a new container image tagged with prod to Openshift
+
+on:
+  push:
+    branches: [production]
+  workflow_dispatch:
+
+name: Deploy to Prod
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment: 
+      name: Production
+    steps:
+      # checkout the repo
+      - name: "Build and push backend to Openshift" 
+        uses: docker/login-action@v2
+       with:
+         registry: image-registry.apps.silver.devops.gov.bc.ca
+         username: builder
+         password: ${{ secrets.SILVER_DEV_SA_BUILDER_TOKEN }}
+      - run: |
+         docker build ciot-api -t image-registry.apps.silver.devops.gov.bc.ca/d2cb5f-tools/ciot-api:prod
+         docker push image-registry.apps.silver.devops.gov.bc.ca/d2cb5f-tools/ciot-api:prod
+
+      - name: "Build and push frontend to Openshift"
+       uses: docker/login-action@v2
+       with:
+         registry: image-registry.apps.silver.devops.gov.bc.ca
+         username: builder
+         password: ${{ secrets.SILVER_DEV_SA_BUILDER_TOKEN }}
+      - run: |
+         docker build ciot-web -t image-registry.apps.silver.devops.gov.bc.ca/d2cb5f-tools/ciot-web:prod
+         docker push image-registry.apps.silver.devops.gov.bc.ca/d2cb5f-tools/ciot-web:prod
+
+
