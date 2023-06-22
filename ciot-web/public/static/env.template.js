@@ -8,9 +8,4 @@
   window.env.snowplowUrl = "${REACT_APP_SNOWPLOW_COLLECTOR}";
   window.env.geocoderKey = "${REACT_APP_GEOCODER_API_KEY}";
   window.env.routePlannerKey = "${REACT_APP_BC_ROUTE_PLANNER_API_KEY}";
-  window.env.pbiReportIdPublic = "${REACT_APP_POWER_BI_REPORT_ID_PUBLIC}";
-  window.env.pbiReportIdInternal = "${REACT_APP_POWER_BI_REPORT_ID_INTERNAL}";
-  window.env.pbiReportIdCompare = "${REACT_APP_POWER_BI_REPORT_ID_COMPARE}";
-  window.env.pbiReportIdSearch = "${REACT_APP_POWER_BI_REPORT_ID_SEARCH}";
-  window.env.pbiGroupId = "${REACT_APP_POWER_BI_GROUP_ID}";
 })(this);
