@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  build-and-deploy-web:
     runs-on: ubuntu-latest
     name: web build
     steps:
@@ -28,7 +28,7 @@ jobs:
         with:
           registry: image-registry.apps.silver.devops.gov.bc.ca
           username: builder
-          password: ${{ secrets.SILVER_DEV_SA_BUILDER_TOKEN }}
+          password: ${{ secrets.SILVER_TOOLS_BUILDER_TOKEN }}
 
       - name: "Push image"
         run: |

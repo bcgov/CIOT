@@ -1,0 +1,46 @@
+# This workflow will build and push a new container image tagged with test to Openshift
+
+on:
+  push:
+    branches: [testing]
+  workflow_dispatch:
+
+name: Deploy to Test
+jobs:
+  build-and-deploy-api:
+    runs-on: ubuntu-latest
+    environment:
+      name: Testing
+    steps:
+      # checkout the repo
+      - name: "Checkout GitHub Action"
+        uses: actions/checkout@master
+
+      - name: "Build and push backend to Openshift"
+        uses: docker/login-action@v2
+        with:
+          registry: image-registry.apps.silver.devops.gov.bc.ca
+          username: builder
+          password: ${{ secrets.SILVER_TOOLS_BUILDER_TOKEN }}
+      - run: |
+          docker build ciot-api -t image-registry.apps.silver.devops.gov.bc.ca/d2cb5f-tools/ciot-api:test
+          docker push image-registry.apps.silver.devops.gov.bc.ca/d2cb5f-tools/ciot-api:test
+
+  build-and-deploy-web:
+    runs-on: ubuntu-latest
+    environment:
+      name: Testing
+    steps:
+      # checkout the repo
+      - name: "Checkout GitHub Action"
+        uses: actions/checkout@master
+
+      - name: "Build and push backend to Openshift"
+        uses: docker/login-action@v2
+        with:
+          registry: image-registry.apps.silver.devops.gov.bc.ca
+          username: builder
+          password: ${{ secrets.SILVER_TOOLS_BUILDER_TOKEN }}
+      - run: |
+          docker build ciot-web -t image-registry.apps.silver.devops.gov.bc.ca/d2cb5f-tools/ciot-web:test
+          docker push image-registry.apps.silver.devops.gov.bc.ca/d2cb5f-tools/ciot-web:test
