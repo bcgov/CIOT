@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  build-and-deploy-api:
     runs-on: ubuntu-latest
     name: api build
     steps:
@@ -27,6 +27,6 @@ jobs:
         with:
           registry: image-registry.apps.silver.devops.gov.bc.ca
           username: builder
-          password: ${{ secrets.SILVER_DEV_SA_BUILDER_TOKEN }}
+          password: ${{ secrets.SILVER_TOOLS_BUILDER_TOKEN }}
       - run: |
           docker push image-registry.apps.silver.devops.gov.bc.ca/d2cb5f-tools/ciot-api:develop
