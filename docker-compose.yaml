@@ -8,26 +8,4 @@ services:
       - ciot-web/.env
     restart: always
     ports:
-      - "80:80"
-    networks:
-      - backend
-    depends_on:
-      - ciot-api
-
-  ciot-api:
-    container_name: ciot-api
-    build:
-      context: ./ciot-api
-      dockerfile: dockerfile_dev
-    volumes:
-      - ./ciot-api:/code
-    env_file:
-      - ciot-api/.env
-    ports:
-      - 8000:8000
-    networks:
-      - backend
-
-networks:
-  backend:
-    driver: "bridge"
+      - "8080:8080"
