@@ -3,7 +3,7 @@ import { Container, Row, Col, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "shared-components";
 import { useEffect, useState } from "react";
-import v4 from "uuid";
+import { v4 } from "uuid";
 import { Callout } from "shared-components/build/components/callout/Callout";
 import NumberFormat from "react-number-format";
 import NavigationHeader from "../../Headers/NavigationHeader/NavigationHeader";
