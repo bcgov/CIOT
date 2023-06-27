@@ -7,21 +7,22 @@ on:
 
 name: Deploy to Prod
 jobs:
-  build-and-deploy-api:
-    runs-on: ubuntu-latest
-    environment:
-      name: Production
-    steps:
-      # checkout the repo
-      - name: "Build and push backend to Openshift"
-        uses: docker/login-action@v2
-       with:
-         registry: image-registry.apps.silver.devops.gov.bc.ca
-         username: builder
-         password: ${{ secrets.SILVER_TOOLS_BUILDER_TOKEN }}
-      - run: |
-         docker build ciot-api -t image-registry.apps.silver.devops.gov.bc.ca/d2cb5f-tools/ciot-api:prod
-         docker push image-registry.apps.silver.devops.gov.bc.ca/d2cb5f-tools/ciot-api:prod
+  # ciot-api is disabled to enforce use of backend logic in CIT repo (cit-api) https://github.com/bcgov/CIT
+  # build-and-deploy-api:
+  #   runs-on: ubuntu-latest
+  #   environment:
+  #     name: Production
+  #   steps:
+  #     # checkout the repo
+  #     - name: "Build and push backend to Openshift"
+  #       uses: docker/login-action@v2
+  #      with:
+  #        registry: image-registry.apps.silver.devops.gov.bc.ca
+  #        username: builder
+  #        password: ${{ secrets.SILVER_TOOLS_BUILDER_TOKEN }}
+  #     - run: |
+  #        docker build ciot-api -t image-registry.apps.silver.devops.gov.bc.ca/d2cb5f-tools/ciot-api:prod
+  #        docker push image-registry.apps.silver.devops.gov.bc.ca/d2cb5f-tools/ciot-api:prod
 
   build-and-deploy-web:
     runs-on: ubuntu-latest
