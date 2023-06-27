@@ -3,7 +3,7 @@ license_plate: d2cb5f
 replicas: 1
 image_stream_tag: test
 namespace_env: test
-limits_cpu: 512m
+limits_cpu: 250m
 limits_memory: 512Mi
 requests_cpu: 150m
 requests_memory: 512Mi
