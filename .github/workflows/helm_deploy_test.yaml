@@ -8,7 +8,7 @@ on:
     workflow_dispatch:
 
 jobs:
-    helm_upgrade_dev:
+    helm_upgrade_test:
         runs-on: ubuntu-latest
         name: Helm Uprade CIOT Test
 
