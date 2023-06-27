@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  helm_upgrade_dev:
+  helm_upgrade_prod:
     runs-on: ubuntu-latest
     name: Helm Uprade CIOT Production
 
@@ -20,7 +20,7 @@ jobs:
         uses: redhat-actions/oc-login@v1.2
         with:
           openshift_server_url: https://api.silver.devops.gov.bc.ca:6443
-          openshift_token: ${{ secrets.SILVER_DEV_SA_PIPELINE_TOKEN }}
+          openshift_token: ${{ secrets.SILVER_PROD_SA_PIPELINE_TOKEN }}
           insecure_skip_tls_verify: true
           namespace: d2cb5f-prod
 
