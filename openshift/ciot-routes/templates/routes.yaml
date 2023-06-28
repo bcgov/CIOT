@@ -1,0 +1,25 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: {{ .Values.app_name }}-web
+  labels:
+    app: {{ .Values.app_name }}-web
+    name: {{ .Values.app_name }}-web
+spec:
+  host: {{ .Values.subdomain }}communitylandopportunities.gov.bc.ca
+  port:
+    targetPort: 8080-tcp
+  tls:
+    termination: edge
+    certificate: |-
+{{ .Files.Get "certs/communitylandopportunities.gov.bc.txt" | indent 6 }}
+    key: |-
+{{ .Files.Get "certs/ciot.key" | indent 6 }}
+    caCertificate: |-
+{{ .Files.Get "certs/L1K_Chain.txt" | indent 6 }}
+    insecureEdgeTerminationPolicy: Redirect
+  to:
+    kind: Service
+    name: ciot-web
+    weight: 100
+  wildcardPolicy: None
