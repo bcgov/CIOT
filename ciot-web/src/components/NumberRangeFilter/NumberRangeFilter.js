@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import "./NumberRangeFilter.css";
+import "react-input-range/src/scss/index.scss";
 import { Button } from "shared-components";
 import { Modal } from "react-bootstrap";
 import InputRangeWithTextboxes from "../InputRangeWithTextboxes/InputRangeWithTextboxes";
