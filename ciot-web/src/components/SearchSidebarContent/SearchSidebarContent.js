@@ -12,7 +12,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import InlineSelectFilter from "../InlineSelectFilter/InlineSelectFilter";
 import InlineCommunityOrPopulationProximityFilter from "../InlineCommunityOrPopulationProximityFilter/InlineCommunityOrPopulationProximityFilter";
-import "./SearchSidebarContent.css";
+import "./SearchSidebarContent.scss";
 import { getOptions, setOptions } from "../../store/actions/options";
 import InlineNumberRangeFilter from "../InlineNumberRangeFilter/InlineNumberRangeFilter";
 

@@ -85,9 +85,10 @@ h2.bcgov-homepage-sub-header-text {
 }
 
 .box {
-    border: 1px solid #606060;
+    border: 0px;
     border-radius: 10px;
-    box-shadow: 0 8px 8px 0 #e3e3e3;
+    box-shadow: none;
+    background-color: #e8f4f9;
 }
 
 .svg-box {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import "./InlineNumberRangeFilter.css";
-// import "react-input-range/src/scss/index.scss";
+import "react-input-range/src/scss/index.scss";
 import { OverlayTrigger } from "react-bootstrap";
 import InputRangeWithTextboxes from "../InputRangeWithTextboxes/InputRangeWithTextboxes";
 
