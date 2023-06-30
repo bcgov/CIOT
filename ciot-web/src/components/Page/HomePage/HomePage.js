@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-import "./HomePage.css";
+import "./HomePage.scss";
 import { Button } from "shared-components";
 import { useKeycloakWrapper } from "../../../hooks/useKeycloakWrapper";
 import Roles from "../../../constants/roles";
@@ -57,7 +57,7 @@ export default function HomePage() {
                       styling="home-buttons"
                       label={
                         <>
-                          <span>
+                          <span style={{ color: "#FFFFFF" }}>
                             View Investments and Opportunities&nbsp;&nbsp;
                           </span>
                           <img
@@ -114,7 +114,9 @@ export default function HomePage() {
                       styling="home-buttons"
                       label={
                         <>
-                          <span>Add a land investment&nbsp;&nbsp;</span>
+                          <span style={{ color: "#FFFFFF" }}>
+                            Add a land investment&nbsp;&nbsp;
+                          </span>
                           <img
                             src="/images/plus.svg"
                             width="20"
