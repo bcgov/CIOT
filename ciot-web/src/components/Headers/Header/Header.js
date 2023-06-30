@@ -1,4 +1,4 @@
-import "./Header.css";
+import "./Header.scss";
 
 import React, { useState, useEffect } from "react";
 import { useHistory, useLocation } from "react-router";

@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import NumberRangeFilter from "../NumberRangeFilter/NumberRangeFilter";
 import SelectFilter from "../SelectFilter/SelectFilter";
 import CommunityOrPopulationProximityFilter from "../CommunityOrPopulationProximityFilter/CommunityOrPopulationProximityFilter";
-import "./SearchFlyoutContent.css";
+import "./SearchFlyoutContent.scss";
 import { getOptions, setOptions } from "../../store/actions/options";
 
 const FORM_OPPORTUNITY_ROAD_CONNECTED = "opportunity_road_connected";
