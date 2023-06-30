@@ -28,7 +28,9 @@ export default function FooterLinks({ type }) {
   return (
     <Row className="footer-main">
       <Col sm={9}>
-        <h3 className="pb-2">{data.heading}</h3>
+        <h3 className="pb-2" style={{ color: "#FFFFFF" }}>
+          {data.heading}
+        </h3>
         <p>{data.subText}</p>
       </Col>
       <Col sm={3} className="d-flex justify-content-center align-items-center">

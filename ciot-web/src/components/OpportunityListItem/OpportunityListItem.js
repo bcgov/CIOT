@@ -6,7 +6,7 @@ import LinesEllipsis from "react-lines-ellipsis";
 import NumberFormat from "react-number-format";
 import Map from "../Map/Map";
 import {
-  determineStatusTextColour,
+  determineStatusBackgroundColour,
   formatDate,
   getAddress,
 } from "../../helpers/helpers";
@@ -46,60 +46,64 @@ const OpportunityListItem = ({
   const determineActions = (opp) => {
     if (opp.approvalStatus === "PUBL") {
       return (
-        <>
+        <div className="bcgov-opp-actions-inner">
           <Button
-            className="p-0"
+            className="p-0 bcgov-view-listing-link"
             variant="link"
             onClick={() => setCurrentUrl(opp.link)}
           >
             View Listing
           </Button>
-          <br />
+          |
           <Button
-            className="p-0"
+            className="p-0 bcgov-edit-listing-link"
             variant="link"
             onClick={() => goToEditListing()}
           >
             Edit Listing
           </Button>
-          <br />
+          |
           <Button
+            className="p-0 bcgov-closed-listing-link"
             variant="link"
-            className="p-0"
             onClick={() => handleModalOpen(opp.id)}
           >
             Close
           </Button>
-          <br />
-          <NavLink to={`/delete/investmentopportunities/${opp.id}/`}>
+          <NavLink
+            to={`/delete/investmentopportunities/${opp.id}/`}
+            className=" bcgov-delete-listing-link"
+          >
             Delete
           </NavLink>
-        </>
+        </div>
       );
     }
     return (
-      <>
+      <div className="bcgov-opp-actions-inner">
         <Button
-          className="p-0"
+          className="p-0 bcgov-view-listing-link"
           variant="link"
           onClick={() => setCurrentUrl(opp.link)}
         >
           View Listing
         </Button>
-        <br />
-
+        |
         <Button
-          className="p-0"
+          className="p-0 bcgov-edit-listing-link"
           variant="link"
           onClick={() => goToEditListing()}
         >
           Edit Listing
         </Button>
-        <br />
-        <NavLink to={`/delete/investmentopportunities/${opp.id}`}>
+        |
+        <NavLink
+          className="p-0 bcgov-delete-listing-link"
+          to={`/delete/investmentopportunities/${opp.id}`}
+        >
           Delete
         </NavLink>
-      </>
+      </div>
     );
   };
 
@@ -127,97 +131,81 @@ const OpportunityListItem = ({
             />
           </div>
         </Col>
-        <Col className="d-flex flex-column">
+        <Col className="d-flex flex-column bcgov-ciot-opportunity-col">
           {publicView ? (
             <>
               <Row>
-                <Col style={{ paddingLeft: "0" }}>
+                <div className="bcgov-opp-address">
                   <b>{opportunity ? getAddress(opportunity.address) : ""}</b>
-                </Col>
-                <Col
-                  style={{
-                    marginRight: "0.5rem",
-                  }}
-                >
-                  <div className="d-flex flex-row flex-wrap align-content-end">
-                    {opportunity.siteInfo.parcelSize.value ? (
-                      <p className="border--pill">
-                        Parcel Size:{" "}
-                        <NumberFormat
-                          displayType="text"
-                          value={opportunity.siteInfo.parcelSize.value}
-                          suffix={` acres`}
-                          decimalScale={3}
-                          thousandSeparator={
-                            isNaN(opportunity.siteInfo.parcelSize.value)
-                              ? false
-                              : ","
-                          }
-                        />
-                      </p>
-                    ) : null}
-                    {opportunity.userInfo.currentZone.value && options ? (
-                      <p className="border--pill">{`Zoning: ${
-                        options.landUseZoning.find(
-                          (s) =>
-                            s.code === opportunity.userInfo.currentZone.value
-                        ).name
-                      }`}</p>
-                    ) : null}
-                    {opportunity.userInfo.saleOrLease.value && options ? (
-                      <p className="border--pill">{`${saleOrLease()}`}</p>
-                    ) : null}
-                  </div>
-                </Col>
+                </div>
+                <div className="d-flex flex-row flex-wrap bcgov-opp-properties">
+                  {opportunity.siteInfo.parcelSize.value ? (
+                    <p className="border--pill">
+                      Parcel Size:{" "}
+                      <NumberFormat
+                        displayType="text"
+                        value={opportunity.siteInfo.parcelSize.value}
+                        suffix={` acres`}
+                        decimalScale={3}
+                        thousandSeparator={
+                          isNaN(opportunity.siteInfo.parcelSize.value)
+                            ? false
+                            : ","
+                        }
+                      />
+                    </p>
+                  ) : null}
+                  {opportunity.userInfo.currentZone.value && options ? (
+                    <p className="border--pill">{`Zoning: ${
+                      options.landUseZoning.find(
+                        (s) => s.code === opportunity.userInfo.currentZone.value
+                      ).name
+                    }`}</p>
+                  ) : null}
+                  {opportunity.userInfo.saleOrLease.value && options ? (
+                    <p className="border--pill">{`${saleOrLease()}`}</p>
+                  ) : null}
+                </div>
+              </Row>
+              <Row className="h-100 bcgov-cios-list-item-properties">
+                {truncate(opportunity.userInfo.opportunityDescription.value)}
               </Row>
               <Row className="h-100">
-                <Col
-                  style={{
-                    paddingLeft: "0",
-                    paddingTop: "0.5rem",
-                    paddingBottom: "0.5rem",
+                <Button
+                  className="p-0 bcgov-view-properties"
+                  variant="link"
+                  onClick={() => {
+                    window.open(opportunity.link, "_blank");
                   }}
                 >
-                  {truncate(opportunity.userInfo.opportunityDescription.value)}
-                </Col>
-                <Col
-                  style={{
-                    alignSelf: "flex-end",
-                    paddingBottom: "0.5rem",
-                    marginRight: "0.5rem",
-                  }}
-                  sm={6}
-                  md={6}
-                  lg={4}
-                  className="text-right"
-                >
-                  <Button
-                    className="p-0"
-                    variant="link"
-                    onClick={() => {
-                      window.open(opportunity.link, "_blank");
-                    }}
-                  >
-                    View property details
-                  </Button>
-                </Col>
+                  View property details {">"}
+                </Button>
+                {/* </Col> */}
               </Row>
             </>
           ) : null}
-          <Row className="flex-grow-1">
+          <div className="flex-grow-1">
             {!publicView ? (
               <>
-                <Col style={{ paddingLeft: "0" }}>
-                  <b>{opportunity ? getAddress(opportunity.address) : ""}</b>
-                </Col>
-                <Col>{formatDate(opportunity.dateCreated)}</Col>
-                <Col>
-                  {determineStatusTextColour(opportunity.approvalStatus)}
-                </Col>
-                <Col>{determineActions(opportunity)}</Col>
+                <div className="bcgov-opp-status">
+                  {determineStatusBackgroundColour(opportunity.approvalStatus)}
+                </div>
+                <div style={{ paddingLeft: "0" }}>
+                  <div className="bcgov-opp-address">
+                    <b>{opportunity ? getAddress(opportunity.address) : ""}</b>
+                  </div>
+                </div>
+                <div className="bcgov-opp-properties">
+                  <div className="bcgov-opp-date-added">
+                    Date added: {formatDate(opportunity.dateCreated)}
+                  </div>
+                </div>
+                <div className="bcgov-opp-actions">
+                  {determineActions(opportunity)}
+                </div>
               </>
             ) : null}
-          </Row>
+          </div>
           {!publicView && opportunity.publicNote ? (
             <Row>
               <Col style={{ paddingLeft: "0" }}>
