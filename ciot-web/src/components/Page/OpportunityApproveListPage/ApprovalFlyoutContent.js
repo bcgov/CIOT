@@ -239,7 +239,10 @@ const ApprovalFlyoutContent = ({ title, onQuery, resetFilters, search }) => {
       </div>
       <div className="my-3">
         <h4 className="mb-3">Regional District</h4>
-        <Form.Group controlId="regional_district">
+        <Form.Group
+          controlId="regional_district"
+          style={{ marginRight: "12px" }}
+        >
           <Form.Label className="visually-hidden">To</Form.Label>
           <Form.Control
             as="select"
@@ -257,8 +260,11 @@ const ApprovalFlyoutContent = ({ title, onQuery, resetFilters, search }) => {
           </Form.Control>
         </Form.Group>
       </div>
-      <hr className="hr-bold" />
-      <div className="d-flex justify-content-end">
+      <hr className="hr-bold" style={{ marginRight: "12px" }} />
+      <div
+        className="d-flex justify-content-end"
+        style={{ marginRight: "12px" }}
+      >
         <Button
           styling="BC-Gov-SecondaryButton"
           label="Reset all filters"
