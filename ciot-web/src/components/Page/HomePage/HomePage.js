@@ -58,7 +58,7 @@ export default function HomePage() {
                       label={
                         <>
                           <span style={{ color: "#FFFFFF" }}>
-                            View Investments and Opportunities&nbsp;&nbsp;
+                            View opportunities&nbsp;&nbsp;
                           </span>
                           <img
                             src="/images/searchIcon.svg"
@@ -115,7 +115,7 @@ export default function HomePage() {
                       label={
                         <>
                           <span style={{ color: "#FFFFFF" }}>
-                            Add a land investment&nbsp;&nbsp;
+                            Add an opportunity&nbsp;&nbsp;
                           </span>
                           <img
                             src="/images/plus.svg"

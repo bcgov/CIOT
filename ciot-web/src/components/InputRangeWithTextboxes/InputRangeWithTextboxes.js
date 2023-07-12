@@ -131,6 +131,7 @@ export default function InputRangeWithTextboxes(props) {
             lowerRightLabel={units}
           />
         </div>
+
         <div className="input-range-text-input  bcgov-ciot-right">
           <TextInput
             className="bcgov-ciot-range-text"
