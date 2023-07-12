@@ -83,7 +83,7 @@ const Header = () => {
           <Button
             variant="link"
             className="text-white"
-            onClick={() => history.push("/investmentopportunities/home")}
+            onClick={() => history.push("/investmentopportunities/dashboard")}
           >
             Dashboard
           </Button>
