@@ -497,12 +497,14 @@ export default function SearchSidebarContent({
     if (connectivitySwitchValue !== null) {
       filters[FORM_CONNECTIVITY] = connectivitySwitchValue ? "Y" : "N";
     }
-    if (postSecondarySwitchValue !== null) {
-      filters[FORM_POST_SECONDARY] = postSecondarySwitchValue ? "Y" : "N";
+    if (proximityToCommunityOrPopulationIsSelected) {
       filters[FORM_COMMUNITY_POPULATION_DISTANCE_MIN] =
         proximityToCommunityOrPopulationInputRange.min;
       filters[FORM_COMMUNITY_POPULATION_DISTANCE_MAX] =
         proximityToCommunityOrPopulationInputRange.max;
+    }
+    if (postSecondarySwitchValue !== null) {
+      filters[FORM_POST_SECONDARY] = postSecondarySwitchValue ? "Y" : "N";
     }
     if (researchCentreSwitchValue !== null) {
       filters[FORM_RESEARCH_CENTRE] = researchCentreSwitchValue ? "Y" : "N";
