@@ -93,7 +93,7 @@ export default function InlineCommunityOrPopulationProximityFilter(props) {
 
   return (
     <>
-      <p>Distance</p>
+      <p>Distance (km)</p>
       <InputRangeWithTextboxes
         inputRange={inputRange}
         units={units}

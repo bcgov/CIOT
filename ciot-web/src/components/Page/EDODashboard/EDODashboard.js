@@ -176,94 +176,48 @@ export default function EDODashboard() {
           </p>
         </div>
         <Container className="dashboard-instructions">
-          <h2 className="dashboard-header">
-            Before you add a listing, review the eligibility criteria to ensure
-            the property meets the eligibility criteria.
-          </h2>
+          <p>Before you add a listing, review the eligibility criteria:</p>
+          <h3 className="criteria-opportunities">Zoning</h3>
           <Row className="dashboard-row">
             <Col className="svg-box" xs={2}>
               <img
                 style={{ padding: "3%" }}
                 src="/images/building.svg"
-                alt="Find Properties"
+                alt="Zoning"
               />
             </Col>
             <Col className="svg-box" xs={10}>
-              <ul>
-                <li>
-                  Properties must be zoned for industrial, commercial or
-                  agricultural use. Industrial properties of any size may be
-                  listed. Commercial and agricultural properties may be listed
-                  if they are at least 5 acres in size.
-                </li>
-              </ul>
+              Property is zoned for industrial commercial or agricultural use.
             </Col>
           </Row>
-          <Row className="dashboard-row">
-            <Col className="svg-box" xs={2}>
-              <img
-                style={{ padding: "3%" }}
-                src="/images/british-columbia.svg"
-                alt="Find Properties"
-              />
-            </Col>
-            <Col className="svg-box" xs={10}>
-              <ul>
-                <li>Land must be available for sale or lease.</li>
-                <li>
-                  Land may be publicly or privately owned but may only be listed
-                  with the written permission of the landowner.
-                </li>
-                <li>
-                  Land must be free of constraints that could impact the
-                  developable area or range of land uses permitted on the
-                  property.
-                </li>
-              </ul>
-            </Col>
-          </Row>
+          <h3 className="criteria-opportunities">Restrictions</h3>
           <Row className="dashboard-row">
             <Col className="svg-box" xs={2}>
               <img
                 style={{ padding: "3%" }}
                 src="/images/environmental.svg"
-                alt="Find Properties"
+                alt="Restrictions"
               />
             </Col>
             <Col className="svg-box" xs={10}>
-              <ul>
-                <li>
-                  Potential constraints could include but are not limited to:
-                  <ul className="dashed">
-                    <li>Restrictions on title</li>
-                    <li>Future planned roads or existing rights-of-way</li>
-                    <li>Identified flood zone</li>
-                    <li>
-                      Presence of provincially significant cultural or natural
-                      heritage features
-                    </li>
-                  </ul>
-                </li>
-              </ul>
+              Property is free of potential development constraints
+              (ie.restrictions on title, future planned roads, presence of
+              significant cultural or natural heritage feautres or other).
             </Col>
           </Row>
+          <h3 className="criteria-opportunities">Approval</h3>
           <Row className="dashboard-row">
             <Col className="svg-box" xs={2}>
               <img
                 style={{ padding: "3%" }}
                 src="/images/team.svg"
-                alt="Find Properties"
+                alt="Approval"
               />
             </Col>
             <Col className="svg-box" xs={10}>
-              <ul>
-                <li>
-                  Investment opportunities can be added by an authorized
-                  representative for a community. This is typically an Economic
-                  Development Officer, Chief Administrative Officer, Lands
-                  Manager, or Band Manager.
-                </li>
-              </ul>
+              Opportunity is submitted by an authorized representative for a
+              community (ie. Economic Development Officer, Chief Administrative
+              Officer, First Nations Lands Manager, or other).
             </Col>
           </Row>
         </Container>
