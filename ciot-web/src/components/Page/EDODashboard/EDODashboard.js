@@ -168,15 +168,16 @@ export default function EDODashboard() {
             To create a new listing, follow a simple process to add some key
             information about the property. The tool will automatically provide
             additional location information to help investors and site selectors
-            quickly evaluate evaluate whether the site meets their specific
-            needs. Investment Investment Investment Investment Investment
-            opportunities are reviewed prior to publication by a Provincial
-            Provincial Regional Economic Operations Manager and will go live
+            quickly evaluate whether the site meets their specific needs. All
+            listings will be reviewed prior to publication and will go live
             within 3-5 business days.
           </p>
         </div>
         <Container className="dashboard-instructions">
-          <p>Before you add a listing, review the eligibility criteria:</p>
+          <h2 className="dashboard-header">
+            Before you add a listing, review the eligibility criteria:
+          </h2>
+          <br />
           <h3 className="criteria-opportunities">Zoning</h3>
           <Row className="dashboard-row">
             <Col className="svg-box" xs={2}>
@@ -187,7 +188,7 @@ export default function EDODashboard() {
               />
             </Col>
             <Col className="svg-box" xs={10}>
-              Property is zoned for industrial commercial or agricultural use.
+              Property is zoned for industrial, commercial, or agricultural use.
             </Col>
           </Row>
           <h3 className="criteria-opportunities">Restrictions</h3>
@@ -200,9 +201,9 @@ export default function EDODashboard() {
               />
             </Col>
             <Col className="svg-box" xs={10}>
-              Property is free of potential development constraints
-              (ie.restrictions on title, future planned roads, presence of
-              significant cultural or natural heritage feautres or other).
+              Property is free of potential development constraints (i.e.,
+              restrictions on title, future planned roads, presence of
+              significant cultural or natural heritage features, or other).
             </Col>
           </Row>
           <h3 className="criteria-opportunities">Approval</h3>
@@ -216,8 +217,8 @@ export default function EDODashboard() {
             </Col>
             <Col className="svg-box" xs={10}>
               Opportunity is submitted by an authorized representative for a
-              community (ie. Economic Development Officer, Chief Administrative
-              Officer, First Nations Lands Manager, or other).
+              community (i.e., Economic Development Officer, Chief
+              Administrative Officer, First Nations Lands Manager, or other).
             </Col>
           </Row>
         </Container>

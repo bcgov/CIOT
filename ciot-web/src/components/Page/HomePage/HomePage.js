@@ -100,10 +100,10 @@ export default function HomePage() {
                   <Row>
                     <p>
                       Help investors find the next big opportunity in your
-                      community. Promote industrial, commercial and agricultural
-                      properties available for sale or lease in your community
-                      tool will automatically add key location information to
-                      support site selection decisions.
+                      community. Promote industrial, commercial, and
+                      agricultural properties available for sale or lease in
+                      your community and the tool will automatically add key
+                      location information to support site selection decisions.
                     </p>
                   </Row>
                   <Row className="d-flex justify-content-start w-100 bcgov-ciot-button">
