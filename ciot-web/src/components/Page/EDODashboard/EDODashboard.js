@@ -171,6 +171,21 @@ export default function EDODashboard() {
             quickly evaluate whether the site meets their specific needs. All
             listings will be reviewed prior to publication and will go live
             within 3-5 business days.
+            <Col
+              className="pt-3 text-right"
+              style={{ paddingLeft: "0px", paddingTop: "0px" }}
+            >
+              <span style={{ float: "left" }}>
+                {" "}
+                <Link
+                  to="/investmentopportunities/disclaimer-contributor"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Terms of Use
+                </Link>
+              </span>{" "}
+            </Col>
           </p>
         </div>
         <Container className="dashboard-instructions">
