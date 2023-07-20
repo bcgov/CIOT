@@ -71,12 +71,6 @@ export function determineStatusTextColour(approvalStatus, adminView) {
     }
     return <div className="status-text-red">Needs to be edited</div>;
   }
-  if (approvalStatus === "NWED") {
-    if (adminView) {
-      return <div className="status-text-orange">New - Edited</div>;
-    }
-    return <div className="status-text-orange">Pending Review</div>;
-  }
   if (approvalStatus === "CLOS") {
     return <div className="status-text-orange">Closed</div>;
   }
@@ -95,12 +89,6 @@ export function determineStatusBackgroundColour(approvalStatus, adminView) {
       return <div className="status-background-red">Pending Edit</div>;
     }
     return <div className="status-background-red">Needs to be edited</div>;
-  }
-  if (approvalStatus === "NWED") {
-    if (adminView) {
-      return <div className="status-background-orange">New - Edited</div>;
-    }
-    return <div className="status-background-orange">Pending Review</div>;
   }
   if (approvalStatus === "CLOS") {
     return <div className="status-background-lilac">Closed</div>;

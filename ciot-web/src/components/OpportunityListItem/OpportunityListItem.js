@@ -65,11 +65,13 @@ const OpportunityListItem = ({
           |
           <Button
             className="p-0 bcgov-closed-listing-link"
+            style={{ marginLeft: "15px" }}
             variant="link"
             onClick={() => handleModalOpen(opp.id)}
           >
             Close
           </Button>
+          |
           <NavLink
             to={`/delete/investmentopportunities/${opp.id}/`}
             className=" bcgov-delete-listing-link"
