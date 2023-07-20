@@ -1,0 +1,275 @@
+.bcgov-ciot-homepage-image {
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px;
+    text-align: center;
+    display: block;
+}
+
+img.bcgov-ciot-homepage-image {
+    width: 982px;
+    height: 278px;
+    text-align: right;
+    padding-left: 510px;
+}
+
+.bcgov-ciot-homepage-headings h1,
+.bcgov-ciot-homepage-headings h2 {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    position: relative;
+    width: 50%;   
+}
+
+.bcgov-ciot-homepage h1 {
+    color: white;
+    background-color: #35aee3d6;
+    position: relative;
+    letter-spacing: 1pt;
+    line-height: 1.2;
+    width: 680px;
+    padding: 30px;
+    font-size: 25pt;
+    left: -190px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -238px;
+}
+
+h3.criteria-opportunities {
+    color: #35aee3d6;
+}
+
+h2.bcgov-homepage-sub-header-text {
+    color: #000;
+    left: -265px;
+    letter-spacing: 1pt;
+    line-height: 1.2;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -30px;
+    margin-bottom: 55px;
+    width: 531px;
+    text-align: left;
+    padding: 30px;
+    font-size: 12pt;
+}
+
+
+.header-div {
+    height: 326px;
+    position: relative;
+}
+
+.header-div img {
+    object-fit: cover;
+}
+
+.header-text {
+    color: white;
+    position: absolute;
+    top: 12%;
+    right: 13%;
+    letter-spacing: 1pt;
+    line-height: 1.2;
+}
+
+.main-header-text {
+    font-size: 40px;
+    text-align: end;
+}
+
+.sub-header-text {
+    font-weight: 400;
+    text-align: end;
+}
+
+.box {
+    border: 0px;
+    border-radius: 10px;
+    box-shadow: none;
+    background-color: #e8f4f9;
+}
+
+.svg-box {
+    height: 100%;
+    width: 100%;
+}
+
+.png-box {
+    position: relative;
+    height: 100%;
+}
+
+.png-img {
+    position: absolute;
+    bottom: 0;
+}
+
+.home-buttons {
+    background-color: #fcba19;
+    border-radius: 4px;
+    border: none;
+    font-weight: 600;
+}
+ul.dashed {
+    list-style-type: none;
+}
+
+ul.dashed > li {
+    text-indent: -9px;
+}
+
+ul.dashed > li:before {
+    content: "- ";
+}
+
+.no-dashed:before {
+    content: "  " !important;
+    text-indent: 9px !important;
+}
+
+.disclaimer {
+    background-color: #f2f2f2;
+    font-size: smaller;
+    color: #707070;
+    margin-bottom: 2em;
+}
+
+.blue-block {
+    background-color: #003366;
+    width: 20px !important;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.disclaimer-text {
+    padding-top: 10px;
+    margin-left: -50px;
+    padding-left: 0px;
+}
+.col-blue {
+    margin: 0%;
+    padding: 0%;
+}
+
+.bcgov-homepage-header {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 600px !important;
+}
+
+.bcgov-ciot-homepage-top-row {
+    margin: auto;
+}
+
+.bcgov-homepage-header-text .sub-header-text {
+    position: absolute !important;
+    display: block;
+    float: left;
+    top: 175px !important;
+    text-align: left;
+    left: -45.5%;
+    width: 60%;
+    font-size: 15pt;
+}
+
+.bcgov-feedback-notice {
+    text-align: center;
+}
+
+.bcgov-homepage-topic {
+    font-family: "BCSans";
+    font-size: 11pt;
+    flex: 1 1;
+    background-color: #e8f4f9 !important;
+    width: 25% !important;
+    height: auto !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    min-height: 438px;
+    min-width: 500px;
+    float: left;
+    margin-left: 0 ;
+    margin-right: 20px;
+}
+
+.bcgov-homepage-text p {
+    min-height: 118px;
+}
+
+.bcgov-ciot-home-page-topics {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1060px;
+}
+
+.bcgov-ciot-homepage .bcgov-ciot-button .bcgov-button {
+    width: 100%;
+    background-color: #003366 !important;
+    min-width: 380px !important;
+}
+
+.bcgov-ciot-button-icon {
+    display: inline-block;
+    position: relative;
+    top: -2px;
+}
+
+
+.bcgov-ciot-homepage-topics {
+    display: block;
+    float: left;
+    width: 67%;
+    margin-left: 21%;
+}
+
+.bcgov-ciot-help-panel {
+    display: block;
+    position: relative;
+    float: left;
+    margin-left: 24%;
+}
+
+.bcgov-ciot-hompage-desc,
+.bcgov-ciot-hompage-login {
+    display: block;
+    position: relative;
+    float: left;
+    width: 40%;
+    margin-left: 0;
+    margin-right: 35px;
+}
+
+@media screen and (max-width: 1066px) {
+    body {
+        min-width: 500px;
+    }
+
+    img.bcgov-ciot-homepage-image {
+        display: none;
+    }
+    h1.bcgov-homepage-header-text,
+    h2.bcgov-homepage-sub-header-text {
+        display: block;
+        position: relative;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 30px !important;
+        text-align: left;
+    }
+
+    .bcgov-ciot-home-page-topics {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
