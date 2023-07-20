@@ -99,8 +99,8 @@ function createRequestFromModel(state) {
   );
   if (state.physical.nearElevation.value) {
     nearestLocations.elevation_at_location = parseFloat(
-      state.physical.nearElevation.value.toFixed(3)
-    );
+      state.physical.nearElevation.value
+    ).toFixed(3);
   }
 
   if (state.physical.nearGround.name) {
@@ -112,110 +112,110 @@ function createRequestFromModel(state) {
   if (state.physical.nearLake.value) {
     nearestLocations.nearest_lake = {
       lake_id: parseInt(state.physical.nearLake.pk, 10),
-      lake_distance: parseFloat(state.physical.nearLake.value.toFixed(2)),
+      lake_distance: parseFloat(state.physical.nearLake.value).toFixed(2),
     };
   }
   if (state.physical.nearRiver.value) {
     nearestLocations.nearest_river = {
       river_id: parseInt(state.physical.nearRiver.pk, 10),
-      river_distance: parseFloat(state.physical.nearRiver.value.toFixed(2)),
+      river_distance: parseFloat(state.physical.nearRiver.value).toFixed(2),
     };
   }
   if (state.transportation.nearHighway.value) {
     nearestLocations.nearest_highway = {
       highway_id: parseInt(state.transportation.nearHighway.pk, 10),
       highway_distance: parseFloat(
-        state.transportation.nearHighway.value.toFixed(2)
-      ),
+        state.transportation.nearHighway.value
+      ).toFixed(2),
     };
   }
   if (state.transportation.nearAirport.value) {
     nearestLocations.nearest_airport = {
       airport_id: parseInt(state.transportation.nearAirport.pk, 10),
       airport_distance: parseFloat(
-        state.transportation.nearAirport.value.toFixed(2)
-      ),
+        state.transportation.nearAirport.value
+      ).toFixed(2),
     };
   }
   if (state.transportation.nearRailway.value) {
     nearestLocations.nearest_railway = {
       railway_id: parseInt(state.transportation.nearRailway.pk, 10),
       railway_distance: parseFloat(
-        state.transportation.nearRailway.value.toFixed(2)
-      ),
+        state.transportation.nearRailway.value
+      ).toFixed(2),
     };
   }
   if (state.transportation.nearPort.value) {
     nearestLocations.nearest_port = {
       port_id: parseInt(state.transportation.nearPort.pk, 10),
-      port_distance: parseFloat(state.transportation.nearPort.value.toFixed(2)),
+      port_distance: parseFloat(state.transportation.nearPort.value).toFixed(2),
     };
   }
   if (state.transportation.nearCustomsPort.value) {
     nearestLocations.nearest_customs_port_of_entry = {
       customs_port_id: parseInt(state.transportation.nearCustomsPort.pk, 10),
       customs_port_distance: parseFloat(
-        state.transportation.nearCustomsPort.value.toFixed(2)
-      ),
+        state.transportation.nearCustomsPort.value
+      ).toFixed(2),
     };
   }
   if (state.services.nearResearchCentre.value) {
     nearestLocations.nearest_research_centre = {
       research_centre_id: parseInt(state.services.nearResearchCentre.pk, 10),
       research_centre_distance: parseFloat(
-        state.services.nearResearchCentre.value.toFixed(2)
-      ),
+        state.services.nearResearchCentre.value
+      ).toFixed(2),
     };
   }
   if (state.services.nearHealth.value) {
     nearestLocations.nearest_health_center = {
       hospital_id: parseInt(state.services.nearHealth.pk, 10),
-      hospital_distance: parseFloat(state.services.nearHealth.value.toFixed(2)),
+      hospital_distance: parseFloat(state.services.nearHealth.value).toFixed(2),
     };
   }
   if (state.services.transmission.value) {
     nearestLocations.nearest_transmission_line = parseFloat(
-      state.services.transmission.value.toFixed(2)
-    );
+      state.services.transmission.value
+    ).toFixed(2);
   }
   if (state.services.nearFire.value) {
     nearestLocations.nearest_fire_station = {
       first_responder_id: parseInt(state.services.nearFire.pk, 10),
       first_responder_distance: parseFloat(
-        state.services.nearFire.value.toFixed(2)
-      ),
+        state.services.nearFire.value
+      ).toFixed(2),
     };
   }
   if (state.services.nearPolice.value) {
     nearestLocations.nearest_police_station = {
       first_responder_id: parseInt(state.services.nearPolice.pk, 10),
       first_responder_distance: parseFloat(
-        state.services.nearPolice.value.toFixed(2)
-      ),
+        state.services.nearPolice.value
+      ).toFixed(2),
     };
   }
   if (state.services.nearAmbulance.value) {
     nearestLocations.nearest_ambulance_station = {
       first_responder_id: parseInt(state.services.nearAmbulance.pk, 10),
       first_responder_distance: parseFloat(
-        state.services.nearAmbulance.value.toFixed(2)
-      ),
+        state.services.nearAmbulance.value
+      ).toFixed(2),
     };
   }
   if (state.services.nearCoastGuard.value) {
     nearestLocations.nearest_coast_guard_station = {
       first_responder_id: parseInt(state.services.nearCoastGuard.pk, 10),
       first_responder_distance: parseFloat(
-        state.services.nearCoastGuard.value.toFixed(2)
-      ),
+        state.services.nearCoastGuard.value
+      ).toFixed(2),
     };
   }
   if (state.services.nearSecondarySchool.value) {
     nearestLocations.nearest_post_secondary = {
       location_id: parseInt(state.services.nearSecondarySchool.pk, 10),
       location_distance: parseFloat(
-        state.services.nearSecondarySchool.value.toFixed(2)
-      ),
+        state.services.nearSecondarySchool.value
+      ).toFixed(2),
     };
   }
   if (Array.isArray(state.userInfo.preferredDevelopment.value)) {
