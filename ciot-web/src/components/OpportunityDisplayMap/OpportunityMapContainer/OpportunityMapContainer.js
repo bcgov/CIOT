@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { CgCloseR } from "react-icons/cg";
 import { GrMapLocation } from "react-icons/gr";
 import { Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import OpportunitiesMap from "../OpportunitiesMap/OpportunitiesMap";
 import "./OpportunityMapContainer.css";
 import { fadeIn, fadeOut } from "../../../helpers/fade";
@@ -64,6 +65,21 @@ export default function OpportunityMapContainer({ totalCount, opportunities }) {
               your filters.
             </h4>
           )}
+        </Col>
+        <Col
+          className="pt-3 text-right"
+          style={{ paddingRight: "0px", paddingTop: "0px" }}
+        >
+          <span>
+            {" "}
+            <Link
+              to="/investmentopportunities/disclaimer-investor"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Terms of Use
+            </Link>
+          </span>{" "}
         </Col>
         {!showMap && (
           <Col className="d-flex justify-content-end">
