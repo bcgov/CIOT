@@ -18,10 +18,12 @@ export default function HomePage() {
           margin: "10px auto",
         }}
       >
-        <img
-          src="/images/CIT_CIOT_banner.png"
-          alt="The Community Information Tool and the Community Investment Opportunities Tool will be decommissioned on July 3, 2024. If you have any questions, please contact connectedcommunities@gov.bc.ca"
-        />
+        <a href="mailto:connectedcommunities@gov.bc.ca">
+          <img
+            src="/images/CIT_CIOT_banner.png"
+            alt="The Community Information Tool and the Community Investment Opportunities Tool will be decommissioned on July 3, 2024. If you have any questions, please contact connectedcommunities@gov.bc.ca"
+          />
+        </a>
       </div>
       <img
         className="bcgov-ciot-homepage-image"
