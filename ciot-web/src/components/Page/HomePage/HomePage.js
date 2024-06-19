@@ -48,10 +48,10 @@ export default function HomePage() {
                     </Row>
                     <Row>
                       <p>
-                        Find properties that meet your site selection criteria for
-                        your next investment into B.C. Search for industrial,
-                        commercial, and agricultural properties by size, site
-                        servicing, and more.
+                        Find properties that meet your site selection criteria
+                        for your next investment into B.C. Search for
+                        industrial, commercial, and agricultural properties by
+                        size, site servicing, and more.
                       </p>
                     </Row>
                     <Row className="d-flex justify-content-centered w-100 bcgov-ciot-button">
@@ -108,7 +108,8 @@ export default function HomePage() {
                         community. Promote industrial, commercial, and
                         agricultural properties available for sale or lease in
                         your community and the tool will automatically add key
-                        location information to support site selection decisions.
+                        location information to support site selection
+                        decisions.
                       </p>
                     </Row>
                     <Row className="d-flex justify-content-start w-100 bcgov-ciot-button">
