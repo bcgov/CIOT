@@ -10,10 +10,19 @@ export default function HomePage() {
   const history = useHistory();
   return (
     <div className="bcgov-ciot-homepage">
-      <img
-        src="/images/CIT_CIOT_banner.png"
-        alt="The Community Information Tool and the Community Investment Opportunities Tool will be decommissioned on July 3, 2024. If you have any questions, please contact connectedcommunities@gov.bc.ca"
-      />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          width: "50%",
+          margin: "10px auto",
+        }}
+      >
+        <img
+          src="/images/CIT_CIOT_banner.png"
+          alt="The Community Information Tool and the Community Investment Opportunities Tool will be decommissioned on July 3, 2024. If you have any questions, please contact connectedcommunities@gov.bc.ca"
+        />
+      </div>
       <img
         className="bcgov-ciot-homepage-image"
         src="/images/shutterstock_2107265879.jpg"
