@@ -14,7 +14,7 @@ export default function HomePage() {
         style={{
           display: "flex",
           justifyContent: "center",
-          width: "50%",
+          width: "70%",
           margin: "10px auto",
         }}
       >
