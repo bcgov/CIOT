@@ -5,7 +5,6 @@ const Config = {
     realm: window.env.keycloakRealm,
     clientId: window.env.keycloakClient,
   },
-  snowplowUrl: window.env.snowplowUrl,
   geocoderKey: window.env.geocoderKey,
   routePlannerKey: window.env.routePlannerKey,
   pbiReportIdPublic: window.env.pbiReportIdPublic,
