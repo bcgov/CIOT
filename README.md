@@ -1,6 +1,9 @@
 [![Lifecycle:Maturing](https://img.shields.io/badge/Lifecycle-Maturing-007EC6)]()
-# B.C. Community Investment Opportunity Tool
+![status](https://img.shields.io/badge/status-archived-lightgrey?style=flat-square)
 
+> 🗃️ **Archived Repository**
+> This repository has been archived and is no longer under active development.
+# B.C. Community Investment Opportunity Tool
   The [Community Investment Opportunity Tool&#128279;](https://communityinformationtool.gov.bc.ca/investmentopportunities/home) is a place where Economic Development Officers (EDO) can go to post possible investment opportunities for their respective communities. This tool includes a user authenticated portion where EDO's can go to see their currently posted investment opportunities as well as post new ones. It also includes a public facing view where possible investors can go to see all the currently available opportunities in the province or narrow down the opportunities on a set of filterable criteria.
 
 ## Installation
